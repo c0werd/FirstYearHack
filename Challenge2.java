@@ -32,10 +32,22 @@ public class Challenge2 {
         }
         scan();
 
-        int numberOfTimePeriods = 5000; // Set to =2 for challenge 2 and =3 for challenge 3
+        int numberOfTimePeriods = 2; // Set to =2 for challenge 2 and =3 for challenge 3
 
         for (int i = 0; i < numberOfTimePeriods; i++) {
-            trading();
+            trading(0.2);
+        }
+
+        sortBotInspections();
+
+    for (String bot : botList) {
+        bots.get(bot).reset();
+    }
+
+        numberOfTimePeriods = 5000; // Set to =2 for challenge 2 and =3 for challenge 3
+
+        for (int i = 0; i < numberOfTimePeriods; i++) {
+            trading(1.0);
         }
 
         sortBotInspections();
@@ -119,12 +131,12 @@ public class Challenge2 {
     }
 
     // Function that determines the trading bot
-    public void trading() {
+    public void trading(double factor) {
 
         for (String bot : botList) {
 
             Challenge2Bot currentBot = bots.get(bot);
-            currentBot.trade(bots.get(currentBot.getFirstBot()), bots.get(currentBot.getSecondBot()));
+            currentBot.trade(bots.get(currentBot.getFirstBot()), bots.get(currentBot.getSecondBot()), factor);
 
         }
     }
