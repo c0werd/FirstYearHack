@@ -33,7 +33,7 @@ public class Challenge2 {
         scan();
 
         int numberOfTimePeriods = 2; // Set to =2 for challenge 2 and =3 for challenge 3
-
+        System.out.println("This is challenge 2:");
         for (int i = 0; i < numberOfTimePeriods; i++) {
             trading(0.2);
         }
@@ -44,8 +44,8 @@ public class Challenge2 {
         bots.get(bot).reset();
     }
 
-        numberOfTimePeriods = 5000; // Set to =2 for challenge 2 and =3 for challenge 3
-
+        numberOfTimePeriods = 5000; 
+        System.out.println("This is Challenge 3:");
         for (int i = 0; i < numberOfTimePeriods; i++) {
             trading(1.0);
         }
