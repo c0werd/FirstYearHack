@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Challenge2 {
     String currentLine;
@@ -14,17 +13,13 @@ public class Challenge2 {
     ArrayList<String> botList;
 
     public static void main(String[] args) {
-        Challenge2 challenge2 = new Challenge2();
-        challenge2.setFile("challenge_2_and_3.txt");
-        challenge2.scan();
-        challenge2.trading();
-        challenge2.trading();
-        challenge2.sortBotInspections();
+        
     }
 
     public Challenge2() {
         bots = new HashMap<>();
         botList = new ArrayList<>();
+        
     }
 
     // Sets the file for the challenge
@@ -35,6 +30,15 @@ public class Challenge2 {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+        scan();
+
+        int numberOfTimePeriods = 5000; // Set to =2 for challenge 2 and =3 for challenge 3
+
+        for (int i = 0; i < numberOfTimePeriods; i++) {
+            trading();
+        }
+
+        sortBotInspections();
     }
 
     // Function that parses the input file for the various fields
@@ -114,6 +118,7 @@ public class Challenge2 {
         return line.replace("Otherwise trade to bot ", "").replace(".", "").strip();
     }
 
+    // Function that determines the trading bot
     public void trading() {
 
         for (String bot : botList) {
@@ -123,11 +128,11 @@ public class Challenge2 {
 
         }
     }
-
+    //Function that sorts the bots 
     public void sortBotInspections() {
         HashMap<Integer, Challenge2Bot> botInspection = new HashMap<>();
         ArrayList<Integer> inspectionList = new ArrayList<>();
-        ArrayList<Challenge2Bot> finalList = new ArrayList<>();
+        ArrayList<Challenge2Bot> namesList = new ArrayList<>();
         
         for(String bot : botList){
              botInspection.put(bots.get(bot).getInspections(), bots.get(bot));
@@ -136,15 +141,16 @@ public class Challenge2 {
 
         Collections.sort(inspectionList);
         Collections.reverse(inspectionList);
-        System.out.println(inspectionList);
 
         for (Integer i : inspectionList) {
-            finalList.add(botInspection.get(i));
+            namesList.add(botInspection.get(i));
         }
         
-        System.out.println(finalList);
-
+        for (int i = 0; i < namesList.size(); i++){
+            System.out.println(namesList.get(i) + ": " + inspectionList.get(i));
         }
+    }
+
 }
 
 // ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄
