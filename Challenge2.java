@@ -14,7 +14,7 @@ public class Challenge2 {
                 System.out.println(challenge2.getInitSecurities(sc));
                 challenge2.getDivisible(sc);
                 challenge2.getBotOne(sc);
-                challenge2.getNotBotOne(sc);
+                challenge2.getNotBotTwo(sc);
             }
 
             sc.close();
