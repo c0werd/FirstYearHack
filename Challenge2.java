@@ -135,7 +135,7 @@ public class Challenge2 {
         }
 
         Collections.sort(inspectionList);
-        
+        Collections.reverse(inspectionList);
         System.out.println(inspectionList);
 
         for (Integer i : inspectionList) {

@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.HashMap;
 
 public class Main {
     Challenge1 challenge1;
@@ -8,7 +7,7 @@ public class Main {
     String file1;
     String file2;
     String file3;
-    HashMap<String, Challenge2Bot> bots;
+
 
 
     public static void main(String[] args) {
@@ -24,8 +23,10 @@ public class Main {
         System.out.println("Enter the filename for the .txt file to be used for Challenge 2 and 3:");
         file2 = scanner.nextLine();
 
-        
+        //runs challenge 1 with the file name given
         challenge1.setFile(file1);
+        //runs challenge 2 with the file name given
+        challenge2.setFile(file2);
     }
 
     

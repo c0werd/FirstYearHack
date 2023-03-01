@@ -7,6 +7,7 @@ public class Challenge2Bot {
     private int divisible;
     private String firstBot;
     private String secondBot;
+    private int inspections;
 
     public Challenge2Bot(String name, ArrayList<Integer> securities, int divisible, String firstBot, String secondBot) {
         
@@ -15,18 +16,22 @@ public class Challenge2Bot {
         this.divisible = divisible;
         this.firstBot = firstBot;
         this.secondBot = secondBot;
-        
+        inspections = 0;
     }
 
     public void trade(Challenge2Bot botOne, Challenge2Bot botTwo) {
-        int security = securities.get(0);
-        security = (int) Math.ceil(security * security * 0.2);
-        if (security % divisible == 0) {
-            botOne.addSecurity(security);
-        }
-        else {
-            botTwo.addSecurity(security);
-        }
+        for (Integer security : securities) {
+            int dummySecurity = 0;
+            dummySecurity = (int) Math.ceil(security * security * 0.2);
+            if (dummySecurity % divisible == 0) {
+                botOne.addSecurity(security);
+            }
+            else { 
+                botTwo.addSecurity(security);
+            }
+            inspections++;
+            }
+            securities.clear();
     }
 
     public void addSecurity(int security) {
@@ -44,4 +49,13 @@ public class Challenge2Bot {
     public String getName() {
         return name;
     }
+
+    public int getInspections() {
+        return inspections;
+    }
+
+    public String toString() {
+        return name;
+    }
 }
+

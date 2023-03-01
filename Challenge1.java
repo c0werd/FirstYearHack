@@ -17,7 +17,9 @@ public class Challenge1 {
     }
 
     public void setFile(String filename) {
+        //takes the filename in and creates a file
         this.file = new File(filename);
+        //runs the top five bots check
         topFive();
     }
 
